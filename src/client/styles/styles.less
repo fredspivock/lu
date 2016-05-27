@@ -1583,7 +1583,20 @@ small {
     text-decoration: none;
     color: #F58A00;
     padding: 0;
+
+    img {
+    width: 400px;
+    height: auto;
+    -webkit-animation:spin 4s linear infinite;
+    -moz-animation:spin 4s linear infinite;
+    animation:spin 4s linear infinite;
+    }
 }
+
+//Key frames info
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
 
     .page-splash-message.page-splash-message-subtle {
         margin: 30% auto 0 auto;
@@ -1946,4 +1959,8 @@ a {
     }
 }
 
+.lu-turtle-img {
+    height: 80px;
+    width: 100px;
+}
 /*#endregion */

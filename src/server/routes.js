@@ -2,27 +2,29 @@ var router = require('express').Router();
 var four0four = require('./utils/404')();
 var data = require('./data');
 
-router.get('/people', getPeople);
-router.get('/person/:id', getPerson);
+router.get('/turtles', getTurtles);
+router.get('/turtle/:id', getTurtle);
 router.get('/*', four0four.notFoundMiddleware);
 
 module.exports = router;
 
 //////////////
 
-function getPeople(req, res, next) {
-  res.status(200).send(data.people);
+function getTurtles(req, res, next) {
+  res.status(200).send(data.turtles);
 }
 
-function getPerson(req, res, next) {
+function getTurtle(req, res, next) {
   var id = +req.params.id;
-  var person = data.people.filter(function(p) {
+  var turtle = data.turtles.filter(function(p) {
     return p.id === id;
   })[0];
 
-  if (person) {
-    res.status(200).send(person);
+  if (turtle) {
+    turtleArray = [];
+    turtleArray.push(turtle);
+    res.status(200).send(turtleArray);
   } else {
-    four0four.send404(req, res, 'person ' + id + ' not found');
+    four0four.send404(req, res, 'turtle ' + id + ' not found');
   }
 }

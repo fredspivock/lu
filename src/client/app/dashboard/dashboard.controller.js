@@ -11,18 +11,20 @@
     var vm = this;
     vm.news = {
       title: 'ludia',
-      description: 'Hot Towel Angular is a SPA template for Angular developers.'
+      description: 'Turtle App!.'
     };
     vm.messageCount = 0;
-    vm.people = [];
+    vm.turtles = [];
     vm.title = 'Dashboard';
+    vm.getTurtle = getTurtle;
+    vm.getTurtles = getTurtles;
 
     activate();
 
     function activate() {
-      var promises = [getMessageCount(), getPeople()];
+      var promises = [getMessageCount(), getTurtles()];
       return $q.all(promises).then(function() {
-        logger.info('Activated Dashboard View');
+        logger.info('Check dem turtles!');
       });
     }
 
@@ -33,10 +35,19 @@
       });
     }
 
-    function getPeople() {
-      return dataservice.getPeople().then(function(data) {
-        vm.people = data;
-        return vm.people;
+    function getTurtles() {
+      return dataservice.getTurtles().then(function(data) {
+        vm.turtles = data;
+        console.log(vm.turtles);
+        return vm.turtles;
+      });
+    }
+
+    function getTurtle(id) {
+      return dataservice.getTurtle(id).then(function(data) {
+        vm.turtles = data;
+        console.log(vm.turtles);
+        return vm.turtles;
       });
     }
   }

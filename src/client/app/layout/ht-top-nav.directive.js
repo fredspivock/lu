@@ -30,7 +30,7 @@
     function link(scope, element, attrs) {
       $(document).scroll(function() {
         
-        if($(document).scrollTop() > 200) {
+        if($(document).scrollTop() > 10) {
           element.fadeOut();
         }
         else {

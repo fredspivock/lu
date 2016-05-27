@@ -1,69 +1,19 @@
 <section id="dashboard-view" class="mainbar">
-  <section class="matter">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <ul class="today-datas">
-            <li class="blightblue">
-              <div class="pull-left"><i class="fa fa-plane"></i></div>
-              <div class="datas-text pull-right">
-                <span class="bold">May 18 - 19, 2015</span> Castle Resort, Neverland
-              </div>
-              <div class="clearfix"></div>
-            </li>
-
-            <li class="borange">
-              <div class="pull-left"><i class="fa fa-envelope"></i></div>
-              <div class="datas-text pull-right">
-                <span class="bold">{{vm.messageCount}}</span> Messages
-              </div>
-              <div class="clearfix"></div>
-            </li>
-
-          </ul>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <div class="widget wviolet">
-            <div ht-widget-header title="People" allow-collapse="true"></div>
-            <div class="widget-content text-center text-info">
-              <table class="table table-condensed table-striped">
-                <thead>
-                  <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Age</th>
-                    <th>Location</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr ng-repeat="p in vm.people">
-                    <td>{{p.firstName}}</td>
-                    <td>{{p.lastName}}</td>
-                    <td>{{p.age}}</td>
-                    <td>{{p.location}}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="widget-foot">
-              <div class="clearfix"></div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="widget wgreen">
-            <div ht-widget-header title="{{vm.news.title}}" allow-collapse="true"></div>
-            <div class="widget-content text-center text-info">
-              <small>{{vm.news.description}}</small>
-            </div>
-            <div class="widget-foot">
-              <div class="clearfix"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2 center">Portrait</div>
+				<div class="col-md-4 center">Name</div>
+				<div class="col-md-3 center">Location</div>
+			</div>
+			<div class="row" ng-repeat="turtle in vm.turtles">
+				<div class="col-md-2">
+					<a ng-click="vm.getTurtle(turtle.id)"><img class="lu-turtle-img img-responsive" src="{{turtle.img}}"></a>
+				</div>
+				<div class="col-md-4 lu-turtle-">{{turtle.name}}</div>
+				<div class="col-md-3">{{turtle.location}}</div>
+			</div>
+		</div>
+		<button class="btn btn-primary" ng-click="vm.getTurtles()" ng-disabled="vm.turtles.length > 1">See all</button>
+ 	</section>
 </section>
